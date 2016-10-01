@@ -92,13 +92,9 @@ section.bar-graph:hover {
 
 section.key {
   height: 400px;
-<<<<<<< Updated upstream
   flex: 0 0 230px;
   margin-left: 10px;
-=======
   width: 180px;
-  margin-left: 40px;
->>>>>>> Stashed changes
   // background-color: rgba(105,90,90,1);
   // justify-content: space-around;
   
@@ -108,7 +104,7 @@ section.key {
     color: #f2f2f2;
     text-shadow: .5px .5px #4d4d4d;
     margin-bottom: 3px;
-    // border-radius: 200px;
+
     &#nato {
       background-color: rgb(105,90,90);
     }

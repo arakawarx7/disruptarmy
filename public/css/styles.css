@@ -58,16 +58,9 @@ section.bar-graph:hover {
 
 section.key {
   height: 400px;
-<<<<<<< Updated upstream
   flex: 0 0 230px;
-  margin-left: 10px; }
-
-li {
-  margin-bottom: 30px;
-  list-style-type: disc; }
-=======
-  width: 180px;
-  margin-left: 40px; }
+  margin-left: 10px;
+  width: 180px; }
   section.key li {
     list-style-type: none;
     padding: 15px;
@@ -88,7 +81,6 @@ li {
       background-color: #c8707e; }
     section.key li#staff {
       background-color: #5aa08d; }
->>>>>>> Stashed changes
 
 section.pie {
   height: 800px;
