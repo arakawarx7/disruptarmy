@@ -55,6 +55,12 @@
       App.utils.Get('js/json/CG.json', (data) => {
           console.log('the data',data);
           const parsedCG = JSON.parse(data);
+
+
+
+
+
+          //Very non-dry version of totaling all the times spent in each category
           let totalTimeNato = parsedCG.items.filter(element => {
             return element.summary === 'nato';
           }).map(element => {
@@ -204,7 +210,7 @@
           this.event.joint = totalTimeJoint;
           this.event.staff = totalTimeStaff;
           console.log('CG',this.event);
-
+          
           this.render(this.ready);
         });
     }
