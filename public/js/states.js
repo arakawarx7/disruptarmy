@@ -39,18 +39,25 @@
     // prepare the data
     constructor(){
       // initial state
-      this.event = [];
+      this.event = {
+        nato: null,
+        allies: null,
+        army: null,
+        officials: null,
+        supporters: null,
+        joint: null,
+        staff: null
+      };
 
       // callback function to run after data is ready
       this.ready = placeholder => true;
 
-      this.sub = setInterval(() => {
-
-        // execute an xhr request to http://swapi.co/api/people endpoint
-        App.utils.Get('js/json/CG.json', (data) => {
+      App.utils.Get('js/json/CG.json', (data) => {
           console.log('the data',data);
           const parsedCG = JSON.parse(data);
-          let totalTime = parsedCG.items.map(element => {
+          let totalTimeNato = parsedCG.items.filter(element => {
+            return element.summary === 'nato';
+          }).map(element => {
             let start = element.start.dateTime.slice(11,16);
             let end = element.end.dateTime.slice(11,16);
             if(start.charAt(3) === '3') {
@@ -66,20 +73,140 @@
             return (end - start);
           }).reduce((time,next)=> {
             return time +=next;
-          },0)
-          console.log('total',totalTime);
+          },0);
+          
+          let totalTimeAllies = parsedCG.items.filter(element => {
+            return element.summary === 'allies';
+          }).map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0);
+
+          let totalTimeArmy = parsedCG.items.filter(element => {
+            return element.summary === 'army';
+          }).map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0);
+
+          let totalTimeOfficials = parsedCG.items.filter(element => {
+            return element.summary === 'officials';
+          }).map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0);
+
+          let totalTimeSupporters = parsedCG.items.filter(element => {
+            return element.summary === 'supporters';
+          }).map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0);
+
+          let totalTimeJoint = parsedCG.items.filter(element => {
+            return element.summary === 'joint';
+          }).map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0);
+
+          let totalTimeStaff = parsedCG.items.filter(element => {
+            return element.summary === 'staff';
+          }).map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0);
 
 
-          this.event = parsedCG.items;
+          this.event.nato = totalTimeNato;
+          this.event.allies = totalTimeAllies;
+          this.event.army = totalTimeArmy;
+          this.event.officials = totalTimeOfficials;
+          this.event.supporters = totalTimeSupporters;
+          this.event.joint = totalTimeJoint;
+          this.event.staff = totalTimeStaff;
+          console.log('CG',this.event);
+
           this.render(this.ready);
         });
-
-      }, 1000);
-    }
-
-    // clean up when router leaves this state
-    unmount(){
-      clearInterval(this.sub);
     }
 
     // render the data, when data is ready
@@ -108,37 +235,60 @@
 
   }
 
-  class Places {
+  
 
+  class COS {
+    // prepare the data
     constructor(){
-      this.places = [];
+      // initial state
+      this.event = [];
+
+      // callback function to run after data is ready
       this.ready = placeholder => true;
 
-      this.sub = setInterval(() => {
+      App.utils.Get('js/json/CG.json', (data) => {
+          console.log('the data',data);
+          const parsedCOS = JSON.parse(data);
+          let totalTime = parsedCOS.items.map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0)
+          console.log('total',totalTime);
 
-        App.utils.Get('/api/planets', (data) => {
-          this.places = JSON.parse(data);
+
+          this.event = parsedCOS.items;
           this.render(this.ready);
         });
-
-      }, 1000);
     }
 
-    unmount(){
-      clearInterval(this.sub);
-    }
-
+    // render the data, when data is ready
+    // sets the "ready to rendor" callback
     rendered(callback){
       this.ready = callback;
     }
 
+    // send the final rendered dom element to callback
+    // readyFunc : function(element)
     render(readyFunc){
       const view = document.createElement('div');
       const list = document.createElement('ul');
 
-      const items = this.places.map( place => {
+      const items = this.people.map( person => {
         let item = document.createElement('li');
-        item.innerHTML = place.name;
+        item.innerHTML = person.name;
         return item;
       });
 
@@ -150,37 +300,310 @@
 
   }
 
-  class Spaceships {
-
+  class DCGAR {
+    // prepare the data
     constructor(){
-      this.spaceships = [];
+      // initial state
+      this.event = [];
+
+      // callback function to run after data is ready
       this.ready = placeholder => true;
 
-      this.sub = setInterval(() => {
+      App.utils.Get('js/json/CG.json', (data) => {
+          console.log('the data',data);
+          const parsedDCGAR = JSON.parse(data);
+          let totalTime = parsedDCGAR.items.map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0)
+          console.log('total',totalTime);
 
-        App.utils.Get('/api/starships', (data) => {
-          this.spaceships = JSON.parse(data);
+
+          this.event = parsedDCGAR.items;
           this.render(this.ready);
         });
-
-      }, 1000);
     }
 
-    unmount(){
-      clearInterval(this.sub);
-    }
-
+    // render the data, when data is ready
+    // sets the "ready to rendor" callback
     rendered(callback){
       this.ready = callback;
     }
 
+    // send the final rendered dom element to callback
+    // readyFunc : function(element)
     render(readyFunc){
       const view = document.createElement('div');
       const list = document.createElement('ul');
 
-      const items = this.spaceships.map( spaceship => {
+      const items = this.people.map( person => {
         let item = document.createElement('li');
-        item.innerHTML = spaceship.name;
+        item.innerHTML = person.name;
+        return item;
+      });
+
+      items.forEach( list.appendChild.bind(list) );
+
+      view.appendChild(list);
+      readyFunc(view);
+    }
+
+  }
+
+  class DCGN {
+    // prepare the data
+    constructor(){
+      // initial state
+      this.event = [];
+
+      // callback function to run after data is ready
+      this.ready = placeholder => true;
+
+      App.utils.Get('js/json/CG.json', (data) => {
+          console.log('the data',data);
+          const parsedDCGN = JSON.parse(data);
+          let totalTime = parsedDCGN.items.map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0)
+          console.log('total',totalTime);
+
+
+          this.event = parsedDCGN.items;
+          this.render(this.ready);
+        });
+    }
+
+    // render the data, when data is ready
+    // sets the "ready to rendor" callback
+    rendered(callback){
+      this.ready = callback;
+    }
+
+    // send the final rendered dom element to callback
+    // readyFunc : function(element)
+    render(readyFunc){
+      const view = document.createElement('div');
+      const list = document.createElement('ul');
+
+      const items = this.people.map( person => {
+        let item = document.createElement('li');
+        item.innerHTML = person.name;
+        return item;
+      });
+
+      items.forEach( list.appendChild.bind(list) );
+
+      view.appendChild(list);
+      readyFunc(view);
+    }
+
+  }
+
+  class DCGNG {
+    // prepare the data
+    constructor(){
+      // initial state
+      this.event = [];
+
+      // callback function to run after data is ready
+      this.ready = placeholder => true;
+
+      App.utils.Get('js/json/CG.json', (data) => {
+          console.log('the data',data);
+          const parsedDCGNG = JSON.parse(data);
+          let totalTime = parsedDCGNG.items.map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0)
+          console.log('total',totalTime);
+
+
+          this.event = parsedDCGNG.items;
+          this.render(this.ready);
+        });
+    }
+
+    // render the data, when data is ready
+    // sets the "ready to rendor" callback
+    rendered(callback){
+      this.ready = callback;
+    }
+
+    // send the final rendered dom element to callback
+    // readyFunc : function(element)
+    render(readyFunc){
+      const view = document.createElement('div');
+      const list = document.createElement('ul');
+
+      const items = this.people.map( person => {
+        let item = document.createElement('li');
+        item.innerHTML = person.name;
+        return item;
+      });
+
+      items.forEach( list.appendChild.bind(list) );
+
+      view.appendChild(list);
+      readyFunc(view);
+    }
+
+  }
+
+  class DCGS {
+    // prepare the data
+    constructor(){
+      // initial state
+      this.event = [];
+
+      // callback function to run after data is ready
+      this.ready = placeholder => true;
+
+      App.utils.Get('js/json/CG.json', (data) => {
+          console.log('the data',data);
+          const parsedDCGS = JSON.parse(data);
+          let totalTime = parsedDCGS.items.map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0)
+          console.log('total',totalTime);
+
+
+          this.event = parsedDCGS.items;
+          this.render(this.ready);
+        });
+    }
+
+    // render the data, when data is ready
+    // sets the "ready to rendor" callback
+    rendered(callback){
+      this.ready = callback;
+    }
+
+    // send the final rendered dom element to callback
+    // readyFunc : function(element)
+    render(readyFunc){
+      const view = document.createElement('div');
+      const list = document.createElement('ul');
+
+      const items = this.people.map( person => {
+        let item = document.createElement('li');
+        item.innerHTML = person.name;
+        return item;
+      });
+
+      items.forEach( list.appendChild.bind(list) );
+
+      view.appendChild(list);
+      readyFunc(view);
+    }
+
+  }
+
+  class G3 {
+    // prepare the data
+    constructor(){
+      // initial state
+      this.event = [];
+
+      // callback function to run after data is ready
+      this.ready = placeholder => true;
+
+      App.utils.Get('js/json/CG.json', (data) => {
+          console.log('the data',data);
+          const parsedG3 = JSON.parse(data);
+          let totalTime = parsedG3.items.map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0)
+          console.log('total',totalTime);
+
+
+          this.event = parsedG3.items;
+          this.render(this.ready);
+        });
+    }
+
+    // render the data, when data is ready
+    // sets the "ready to rendor" callback
+    rendered(callback){
+      this.ready = callback;
+    }
+
+    // send the final rendered dom element to callback
+    // readyFunc : function(element)
+    render(readyFunc){
+      const view = document.createElement('div');
+      const list = document.createElement('ul');
+
+      const items = this.people.map( person => {
+        let item = document.createElement('li');
+        item.innerHTML = person.name;
         return item;
       });
 
@@ -195,8 +618,12 @@
   window.app.states = {
     Default,
     CG,
-    Places,
-    Spaceships
+    COS,
+    DCGAR,
+    DCGN,
+    DCGNG,
+    DCGS,
+    G3
   };
 
 }(window));
