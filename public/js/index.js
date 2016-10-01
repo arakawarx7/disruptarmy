@@ -545,10 +545,16 @@
     var bar6 = document.getElementById('chart6');
     var bar7 = document.getElementById('chart7');
 
+    var info = document.getElementById('info');
+    var big = document.getElementById('big-words');
+    var med = document.getElementById('med-words');
+    var small = document.getElementById('small-words');
+
     bar1.onclick = function() {
-      // if ( pie.firstChild !== undefined) {
-      //   pie.removeChild(pie.firstChild);
-      // }
+      big.innerHTML = "17.8% Supporters"
+      med.innerHTML = "17.5% Officials"
+      small.innerHTML = "13.3% Staff"
+
       var cgChart = c3.generate({
          bindto: '#pieChart',
            data: {
@@ -581,9 +587,11 @@
        }
 
      bar2.onclick = function() {
-       // if ( pie.firstChild !== undefined) {
-       //   pie.removeChild(pie.firstChild);
-       // }
+
+       big.innerHTML = "52.4% Staff"
+       med.innerHTML = "11.1% Army"
+       small.innerHTML = "10.6% NATO"
+
        var cgChart = c3.generate({
           bindto: '#pieChart',
             data: {
@@ -616,9 +624,10 @@
         }
 
       bar3.onclick = function() {
-        // if ( pie.firstChild !== undefined) {
-        //   pie.removeChild(pie.firstChild);
-        // }
+        big.innerHTML = "20.9% Allies"
+        med.innerHTML = "17.2% NATO"
+        small.innerHTML = "16.1% Staff"
+
         var cgChart = c3.generate({
            bindto: '#pieChart',
              data: {
@@ -651,9 +660,11 @@
          }
 
      bar4.onclick = function() {
-       // if ( pie.firstChild !== undefined) {
-       //   pie.removeChild(pie.firstChild);
-       // }
+
+       big.innerHTML = "64.6% Joint"
+       med.innerHTML = "10.8% Supporters"
+       small.innerHTML = "7.7% Army"
+
        var cgChart = c3.generate({
           bindto: '#pieChart',
             data: {
@@ -685,9 +696,11 @@
         }
 
       bar5.onclick = function() {
-        // if ( pie.firstChild !== undefined) {
-        //   pie.removeChild(pie.firstChild);
-        // }
+
+        big.innerHTML = "58.5% Officials"
+        med.innerHTML = "16.5% Allies"
+        small.innerHTML = "10.8% Joint"
+
         var cgChart = c3.generate({
            bindto: '#pieChart',
              data: {
@@ -720,9 +733,11 @@
          }
 
      bar6.onclick = function() {
-       // if ( pie.firstChild !== undefined) {
-       //   pie.removeChild(pie.firstChild);
-       // }
+
+       big.innerHTML = "70.2% Allies"
+       med.innerHTML = "9.6% Joint"
+       small.innerHTML = "6.7% NATO"
+
        var cgChart = c3.generate({
           bindto: '#pieChart',
             data: {
@@ -755,9 +770,11 @@
         }
 
       bar7.onclick = function() {
-        // if ( pie.firstChild !== undefined) {
-        //   pie.removeChild(pie.firstChild);
-        // }
+
+        big.innerHTML = "54.7% Army"
+        med.innerHTML = "10.8% Joint"
+        small.innerHTML = "10.5% Staff"
+
       var cgChart = c3.generate({
          bindto: '#pieChart',
            data: {
@@ -789,6 +806,5 @@
 
          });
        }
-
 
 }(window));

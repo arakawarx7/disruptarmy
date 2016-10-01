@@ -6,6 +6,25 @@ div.container {
   display: flex;
   justify-content: space-between; }
 
+nav {
+  width: 1800px;
+  height: 50px;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start; }
+  nav div {
+    margin-top: -30px;
+    margin-bottom: 60px;
+    padding: 10px;
+    width: 500px;
+    height: 200px;
+    border: 1px 0.5 black;
+    text-align: center; }
+    nav div h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 35px;
+      color: gray; }
+
 section.main {
   display: flex;
   justify-content: space-around;
@@ -57,3 +76,15 @@ section.pie {
 section.big {
   height: 700px;
   width: 700px; }
+
+h1, h2, h3 {
+  font-family: 'Lalezar', cursive; }
+
+h1 {
+  font-size: 80px; }
+
+h2 {
+  font-size: 60px; }
+
+h3 {
+  font-size: 40px; }
