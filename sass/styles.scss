@@ -1,5 +1,43 @@
-$dark-color : #595959;
+div.container {
+  display: flex;
+  justify-content: space-between;
+}
 
-h1 {
-	color: $dark-color;
+section.side {
+  height: 1100px;
+  width: 350px;
+  background-color: blue;
+}
+
+section.main {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column-reverse;
+}
+
+section.bar {
+  height: 650px;
+  width: 1520px;
+  // background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+section.bar-graph {
+  height: 600px;
+  width: 1200px;
+  // background-color: green;
+}
+
+section.key {
+  height: 600px;
+  width: 300px;
+  background-color: grey;
+}
+
+section.pie {
+  height: 450px;
+  width: 1520px;
+  background-color: red;
 }
