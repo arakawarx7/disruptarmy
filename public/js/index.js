@@ -188,8 +188,6 @@
 
 
   function renderCG(){
-    console.log('cgEvents',cgEvents);
-    console.log('cosEvents',cosEvents);
     var cgChart = c3.generate({
       bindto: '#chart1',
         data: {
@@ -575,6 +573,10 @@
              }
            },
 
+           donut: {
+             title: "Commanding General"
+           }
+
          });
        }
 
@@ -605,6 +607,10 @@
                 Staff: '#5AA08D'
               }
             },
+
+            donut: {
+              title: "Chief of Staff"
+            }
 
           });
         }
@@ -637,6 +643,10 @@
                }
              },
 
+             donut: {
+               title: "DCG - Army Reserve"
+             }
+
            });
          }
 
@@ -667,6 +677,9 @@
                 Staff: '#5AA08D'
               }
             },
+            donut: {
+              title: "DCG - National Guard"
+            }
 
           });
         }
@@ -699,6 +712,10 @@
                }
              },
 
+             donut: {
+               title: "DCG - National"
+             }
+
            });
          }
 
@@ -729,6 +746,10 @@
                 Staff: '#5AA08D'
               }
             },
+
+            donut: {
+              title: "DCG - South"
+            }
 
           });
         }
@@ -763,7 +784,7 @@
            },
 
            donut: {
-             title: "G3"  
+             title: "G3"
            }
 
          });
