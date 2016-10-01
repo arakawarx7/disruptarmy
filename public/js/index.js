@@ -1,4 +1,5 @@
 
+
 (function(window) {
   window.app = window.app || {};
   // console.log(app.Router.navigate('CG').event);
@@ -388,3 +389,46 @@ function gimmeChart(categoryObject) {
 
 }
 (window))
+
+(function(window) {
+  // namespacing App
+  window.app = window.app || {};
+   const calendarEvents = {
+          nato: null,
+          allies: null,
+          army: null,
+          officials: null,
+          supporters: null,
+          joint: null,
+          staff: null
+        };
+
+  app.utils.Get('js/json/CG.json', (data) => {
+    console.log('the data',data);
+    const parsedCG = JSON.parse(data);
+
+     Object.keys(calendarEvents).forEach((calendarEvent) => {
+       let totalTimeCalEvent = parsedCG.items.filter(element => {
+         return element.summary === calendarEvent;
+       });
+       console.log("total time cal event",totalTimeCalEvent);
+
+       // let timeCalEvent = totalTimes(totalTimeCalEvent);
+
+
+       calendarEvents[calendarEvent] = app.utils.totalTimes(totalTimeCalEvent);
+       console.log("this.event[calendarEvent]",calendarEvents[calendarEvent]);
+    });
+    render();
+  });
+
+function render(){
+
+console.log('calendarEvents',calendarEvents);
+
+
+}
+
+
+  }(window));
+
