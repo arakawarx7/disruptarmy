@@ -6,11 +6,11 @@
 
 div.container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 nav {
-  width: 1800px;
+  width: auto;
   height: 50px;
   // background-color: yellow;
   position: absolute;
@@ -32,6 +32,7 @@ nav {
       font-family: 'Raleway', sans-serif;
       font-size: 35px;
       color: gray;
+      margin-left: -1350px;
     }
   }
 }
@@ -47,7 +48,7 @@ section.main {
   display: flex;
   justify-content: space-around;
   flex-direction: column-reverse;
-  width: 1800px;
+  width: auto;
   margin-left: 10px;
 }
 
@@ -59,24 +60,27 @@ section.bar {
   flex-direction: row;
   align-items: center;
   flex-flow: row nowrap;
+  overflow: auto;
 }
 
 section.bar-graph {
   height: 400px;
-  width: 200px;
+  // width: 200px;
+  flex: 1 1 200px;
   margin-left: 10px;
   margin-right: 10px;
   // background-color: #ededed;
   transition: all 200ms ease-in;
   transition: .3s;
-  max-width: 20%;
-  min-width: 10%;
+  // max-width: 20%;
+  // min-width: 10%;
 }
 
 section.bar-graph:hover {
   transition: .5s;
-  max-width: 40%;
-  flex-grow: 2;
+  flex: 0 0 230px;
+  // flex-grow: 2;
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -88,7 +92,7 @@ section.bar-graph:hover {
 
 section.key {
   height: 400px;
-  width: 230px;
+  flex: 0 0 230px;
   margin-left: 10px;
   // background-color: rgba(105,90,90,1);
   // justify-content: space-around;
@@ -101,7 +105,7 @@ section.key {
 
 section.pie {
   height: 800px;
-  width: 1800px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
