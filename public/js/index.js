@@ -8,68 +8,213 @@ bar2.onclick = function() {
 };
 
 
+chart3.onclick = function() {
+
+}
+
 (function(window) {
+  // namespacing App
   window.app = window.app || {};
-  // console.log(app.Router.navigate('CG').event);
 
-function gimmeChart(categoryObject) {
-  console.log(categoryObject);
-  var cgChart = c3.generate({
-    bindto: '#chart1',
-      data: {
-        columns: [
-          ['NATO',categoryObject.nato],
-          ['Allies',categoryObject.allies],
-          ['Army',categoryObject.army],
-          ['Officials',categoryObject.officials],
-          ['Supporters',categoryObject.supporters],
-          ['Joint',categoryObject.joint],
-          ['Staff',categoryObject.staff]
-        ],
-        type: 'bar',
-        colors: {
-          NATO: '#ff0000',
-          Allies: '#0f0f0f',
-          Army: '#00ff00',
-          Officials: '000fff',
-          Supporters: 'fff000',
-          Joint: '0000ff',
-          Staff: 'f0f0ff'
-        }
-      },
+  const cgEvents = {
+    nato: null,
+    allies: null,
+    army: null,
+    officials: null,
+    supporters: null,
+    joint: null,
+    staff: null
+  };
+  const cosEvents = {
+    nato: null,
+    allies: null,
+    army: null,
+    officials: null,
+    supporters: null,
+    joint: null,
+    staff: null
+  };
+  const dcgarEvents = {
+    nato: null,
+    allies: null,
+    army: null,
+    officials: null,
+    supporters: null,
+    joint: null,
+    staff: null
+  };
+  const dcgnEvents = {
+    nato: null,
+    allies: null,
+    army: null,
+    officials: null,
+    supporters: null,
+    joint: null,
+    staff: null
+  };
+  const dcgngEvents = {
+    nato: null,
+    allies: null,
+    army: null,
+    officials: null,
+    supporters: null,
+    joint: null,
+    staff: null
+  };
+  const dcgsEvents = {
+    nato: null,
+    allies: null,
+    army: null,
+    officials: null,
+    supporters: null,
+    joint: null,
+    staff: null
+  };
+  const g3Events = {
+    nato: null,
+    allies: null,
+    army: null,
+    officials: null,
+    supporters: null,
+    joint: null,
+    staff: null
+  };
 
-      legend: {
-        show: false
-      },
+  app.utils.Get('js/json/CG.json', (data) => {
+    //console.log('the data',data);
+    const parsedCG = JSON.parse(data);
 
-      axis: {
-        x: {
-          type: 'category',
-          categories: ['G1']
-        }
-      },
+    Object.keys(cgEvents).forEach((calendarEvent) => {
+       let totalTimeCalEvent = parsedCG.items.filter(element => {
+         return element.summary === calendarEvent;
+       });
 
-      bar: {
-          width: {
-              ratio: 0.5 // this makes bar width 50% of length between ticks
-          }
-          // or
-          //width: 100 // this makes bar width 100px
-        }
+
+       // let timeCalEvent = totalTimes(totalTimeCalEvent);
+
+
+       cgEvents[calendarEvent] = app.utils.totalTimes(totalTimeCalEvent);
+       renderCG();
     });
-  }
+  });
+  app.utils.Get('js/json/COS.json', (data) => {
+    //console.log('the data',data);
+    const parsedCOS = JSON.parse(data);
 
-    var chart2 = c3.generate({
-      bindto: '#chart2',
+    Object.keys(cosEvents).forEach((calendarEvent) => {
+       let totalTimeCalEvent = parsedCOS.items.filter(element => {
+         return element.summary === calendarEvent;
+       });
+
+
+       // let timeCalEvent = totalTimes(totalTimeCalEvent);
+
+
+       cosEvents[calendarEvent] = app.utils.totalTimes(totalTimeCalEvent);
+       renderCOS();
+    });
+  });
+  app.utils.Get('js/json/DCGAR.json', (data) => {
+    //console.log('the data',data);
+    const parsedDCGAR = JSON.parse(data);
+
+    Object.keys(dcgarEvents).forEach((calendarEvent) => {
+       let totalTimeCalEvent = parsedDCGAR.items.filter(element => {
+         return element.summary === calendarEvent;
+       });
+
+
+       // let timeCalEvent = totalTimes(totalTimeCalEvent);
+
+
+       dcgarEvents[calendarEvent] = app.utils.totalTimes(totalTimeCalEvent);
+       renderDCGAR();
+    });
+  });
+  app.utils.Get('js/json/DCGN.json', (data) => {
+    //console.log('the data',data);
+    const parsedDCGN = JSON.parse(data);
+
+    Object.keys(dcgnEvents).forEach((calendarEvent) => {
+       let totalTimeCalEvent = parsedDCGN.items.filter(element => {
+         return element.summary === calendarEvent;
+       });
+
+
+       // let timeCalEvent = totalTimes(totalTimeCalEvent);
+
+
+       dcgnEvents[calendarEvent] = app.utils.totalTimes(totalTimeCalEvent);
+       renderDCGN();
+    });
+  });
+  app.utils.Get('js/json/DCGNG.json', (data) => {
+    //console.log('the data',data);
+    const parsedDCGNG = JSON.parse(data);
+
+    Object.keys(dcgngEvents).forEach((calendarEvent) => {
+       let totalTimeCalEvent = parsedDCGNG.items.filter(element => {
+         return element.summary === calendarEvent;
+       });
+
+
+       // let timeCalEvent = totalTimes(totalTimeCalEvent);
+
+
+       dcgngEvents[calendarEvent] = app.utils.totalTimes(totalTimeCalEvent);
+       renderDCGNG();
+    });
+  });
+  app.utils.Get('js/json/DCGS.json', (data) => {
+    //console.log('the data',data);
+    const parsedDCGS = JSON.parse(data);
+
+    Object.keys(dcgsEvents).forEach((calendarEvent) => {
+       let totalTimeCalEvent = parsedDCGS.items.filter(element => {
+         return element.summary === calendarEvent;
+       });
+
+
+       // let timeCalEvent = totalTimes(totalTimeCalEvent);
+
+
+       dcgsEvents[calendarEvent] = app.utils.totalTimes(totalTimeCalEvent);
+       renderDCGS();
+    });
+  });
+  app.utils.Get('js/json/G3.json', (data) => {
+    //console.log('the data',data);
+    const parsedG3 = JSON.parse(data);
+
+    Object.keys(g3Events).forEach((calendarEvent) => {
+       let totalTimeCalEvent = parsedG3.items.filter(element => {
+         return element.summary === calendarEvent;
+       });
+
+
+       // let timeCalEvent = totalTimes(totalTimeCalEvent);
+
+       g3Events[calendarEvent] = app.utils.totalTimes(totalTimeCalEvent);
+       renderG3();
+    });
+  });
+
+
+
+  function renderCG(){
+    console.log('cgEvents',cgEvents);
+    console.log('cosEvents',cosEvents);
+    var cgChart = c3.generate({
+      bindto: '#chart1',
         data: {
           columns: [
-            ['NATO',700],
-            ['Allies',600],
-            ['Army',500],
-            ['Officials',400],
-            ['Supporters',300],
-            ['Joint',200],
-            ['Staff',100]
+            ['NATO',cgEvents.nato],
+            ['Allies',cgEvents.allies],
+            ['Army',cgEvents.army],
+            ['Officials',cgEvents.officials],
+            ['Supporters',cgEvents.supporters],
+            ['Joint',cgEvents.joint],
+            ['Staff',cgEvents.staff]
           ],
           type: 'bar',
           colors: {
@@ -81,6 +226,60 @@ function gimmeChart(categoryObject) {
             Joint: '0000ff',
             Staff: 'f0f0ff'
           }
+        },
+
+        legend: {
+          show: false
+        },
+
+        axis: {
+          x: {
+            type: 'category',
+            categories: ['G1']
+          }
+        },
+
+        bar: {
+            width: {
+                ratio: 0.5 // this makes bar width 50% of length between ticks
+            }
+            // or
+            //width: 100 // this makes bar width 100px
+          }
+      });
+    }
+
+    function renderCOS() {
+      var chart2 = c3.generate({
+      bindto: '#chart2',
+        data: {
+          columns: [
+           ['NATO',cosEvents.nato],
+          ['Allies',cosEvents.allies],
+          ['Army',cosEvents.army],
+          ['Officials',cosEvents.officials],
+          ['Supporters',cosEvents.supporters],
+          ['Joint',cosEvents.joint],
+          ['Staff',cosEvents.staff]
+          ],
+          type: 'bar',
+          colors: {
+            NATO: '#ff0000',
+            Allies: '#0f0f0f',
+            Army: '#00ff00',
+            Officials: '000fff',
+            Supporters: 'fff000',
+            Joint: '0000ff',
+            Staff: 'f0f0ff'
+          }
+        },
+
+        onmouseover: function() {
+          chart2.transform('donut');
+        },
+
+        onmouseout: function() {
+          chart2.transform('bar');
         },
 
         legend: {
@@ -105,19 +304,21 @@ function gimmeChart(categoryObject) {
             // or
             //width: 100 // this makes bar width 100px
         }
-    });
+      });
+    }
 
-    var chart3 = c3.generate({
+    function renderDCGAR() {
+      var chart3 = c3.generate({
       bindto: '#chart3',
         data: {
           columns: [
-            ['NATO',700],
-            ['Allies',600],
-            ['Army',500],
-            ['Officials',400],
-            ['Supporters',300],
-            ['Joint',200],
-            ['Staff',100]
+            ['NATO',dcgarEvents.nato],
+          ['Allies',dcgarEvents.allies],
+          ['Army',dcgarEvents.army],
+          ['Officials',dcgarEvents.officials],
+          ['Supporters',dcgarEvents.supporters],
+          ['Joint',dcgarEvents.joint],
+          ['Staff',dcgarEvents.staff]
           ],
           type: 'bar',
           colors: {
@@ -129,6 +330,14 @@ function gimmeChart(categoryObject) {
             Joint: '0000ff',
             Staff: 'f0f0ff'
           }
+        },
+
+        onmouseover: function() {
+          chart3.transform('donut');
+        },
+
+        onmouseout: function() {
+          chart3.transform('bar');
         },
 
         legend: {
@@ -153,19 +362,21 @@ function gimmeChart(categoryObject) {
             // or
             //width: 100 // this makes bar width 100px
         }
-    });
+      });
+    }
 
-    var chart4 = c3.generate({
+    function renderDCGN() {
+      var chart4 = c3.generate({
       bindto: '#chart4',
         data: {
           columns: [
-            ['NATO',700],
-            ['Allies',600],
-            ['Army',500],
-            ['Officials',400],
-            ['Supporters',300],
-            ['Joint',200],
-            ['Staff',100]
+            ['NATO',dcgnEvents.nato],
+          ['Allies',dcgnEvents.allies],
+          ['Army',dcgnEvents.army],
+          ['Officials',dcgnEvents.officials],
+          ['Supporters',dcgnEvents.supporters],
+          ['Joint',dcgnEvents.joint],
+          ['Staff',dcgnEvents.staff]
           ],
           type: 'bar',
           colors: {
@@ -177,6 +388,14 @@ function gimmeChart(categoryObject) {
             Joint: '0000ff',
             Staff: 'f0f0ff'
           }
+        },
+
+        onmouseover: function() {
+          chart4.transform('donut');
+        },
+
+        onmouseout: function() {
+          chart4.transform('bar');
         },
 
         legend: {
@@ -201,19 +420,21 @@ function gimmeChart(categoryObject) {
             // or
             //width: 100 // this makes bar width 100px
         }
-    });
+      });
+    }
 
-    var chart5 = c3.generate({
+    function renderDCGNG() {
+      var chart5 = c3.generate({
       bindto: '#chart5',
         data: {
           columns: [
-            ['NATO',700],
-            ['Allies',600],
-            ['Army',500],
-            ['Officials',400],
-            ['Supporters',300],
-            ['Joint',200],
-            ['Staff',100]
+            ['NATO',dcgngEvents.nato],
+          ['Allies',dcgngEvents.allies],
+          ['Army',dcgngEvents.army],
+          ['Officials',dcgngEvents.officials],
+          ['Supporters',dcgngEvents.supporters],
+          ['Joint',dcgngEvents.joint],
+          ['Staff',dcgngEvents.staff]
           ],
           type: 'bar',
           colors: {
@@ -225,6 +446,14 @@ function gimmeChart(categoryObject) {
             Joint: '0000ff',
             Staff: 'f0f0ff'
           }
+        },
+
+        onmouseover: function() {
+          chart5.transform('donut');
+        },
+
+        onmouseout: function() {
+          chart5.transform('bar');
         },
 
         legend: {
@@ -249,19 +478,21 @@ function gimmeChart(categoryObject) {
             // or
             //width: 100 // this makes bar width 100px
         }
-    });
+      });
+    }
 
-    var chart6 = c3.generate({
+    function renderDCGS() {
+      var chart6 = c3.generate({
       bindto: '#chart6',
         data: {
           columns: [
-            ['NATO',700],
-            ['Allies',600],
-            ['Army',500],
-            ['Officials',400],
-            ['Supporters',300],
-            ['Joint',200],
-            ['Staff',100]
+            ['NATO',dcgsEvents.nato],
+          ['Allies',dcgsEvents.allies],
+          ['Army',dcgsEvents.army],
+          ['Officials',dcgsEvents.officials],
+          ['Supporters',dcgsEvents.supporters],
+          ['Joint',dcgsEvents.joint],
+          ['Staff',dcgsEvents.staff]
           ],
           type: 'bar',
           colors: {
@@ -273,6 +504,14 @@ function gimmeChart(categoryObject) {
             Joint: '0000ff',
             Staff: 'f0f0ff'
           }
+        },
+
+        onmouseover: function() {
+          chart6.transform('donut');
+        },
+
+        onmouseout: function() {
+          chart6.transform('bar');
         },
 
         legend: {
@@ -297,19 +536,21 @@ function gimmeChart(categoryObject) {
             // or
             //width: 100 // this makes bar width 100px
         }
-    });
+      });
+    }
 
-    var chart7 = c3.generate({
+    function renderG3() {
+      var chart7 = c3.generate({
       bindto: '#chart7',
         data: {
           columns: [
-            ['NATO',700],
-            ['Allies',600],
-            ['Army',500],
-            ['Officials',400],
-            ['Supporters',300],
-            ['Joint',200],
-            ['Staff',100]
+            ['NATO',g3Events.nato],
+          ['Allies',g3Events.allies],
+          ['Army',g3Events.army],
+          ['Officials',g3Events.officials],
+          ['Supporters',g3Events.supporters],
+          ['Joint',g3Events.joint],
+          ['Staff',g3Events.staff]
           ],
           type: 'bar',
           colors: {
@@ -323,8 +564,16 @@ function gimmeChart(categoryObject) {
           }
         },
 
+        onmouseover: function() {
+          chart7.transform('donut');
+        },
+
+        onmouseout: function() {
+          chart7.transform('bar');
+        },
+
         legend: {
-          show: false
+          position: 'right'
         },
 
         axis: {
@@ -345,53 +594,8 @@ function gimmeChart(categoryObject) {
             // or
             //width: 100 // this makes bar width 100px
         }
-    });
-
-}
-(window))
-
-chart3.onclick = function() {
-
-}
-
-(function(window) {
-  // namespacing App
-  window.app = window.app || {};
-   const calendarEvents = {
-          nato: null,
-          allies: null,
-          army: null,
-          officials: null,
-          supporters: null,
-          joint: null,
-          staff: null
-        };
-
-  app.utils.Get('js/json/CG.json', (data) => {
-    console.log('the data',data);
-    const parsedCG = JSON.parse(data);
-
-     Object.keys(calendarEvents).forEach((calendarEvent) => {
-       let totalTimeCalEvent = parsedCG.items.filter(element => {
-         return element.summary === calendarEvent;
-       });
-       console.log("total time cal event",totalTimeCalEvent);
-
-       // let timeCalEvent = totalTimes(totalTimeCalEvent);
+      });
+    }
 
 
-       calendarEvents[calendarEvent] = app.utils.totalTimes(totalTimeCalEvent);
-       console.log("this.event[calendarEvent]",calendarEvents[calendarEvent]);
-    });
-    render();
-  });
-
-function render(){
-
-console.log('calendarEvents',calendarEvents);
-
-
-}
-
-
-  }(window));
+}(window));
