@@ -58,159 +58,86 @@
 
 
 
+          function totalTimes(array){
+          return array.map(element => {
+            let start = element.start.dateTime.slice(11,16);
+            let end = element.end.dateTime.slice(11,16);
+            if(start.charAt(3) === '3') {
+              start = parseInt(start.substring(0,2)) + .5;
+            } else {
+              start = parseInt(start.substring(0,2));
+            }
+            if(end.charAt(3) === '3') {
+              end = parseFloat(end.substring(0,2)) + .5;
+            } else {
+              end = parseFloat(end.substring(0,2));
+            }
+            return (end - start);
+          }).reduce((time,next)=> {
+            return time +=next;
+          },0);
 
+        }
 
           //Very non-dry version of totaling all the times spent in each category
           let totalTimeNato = parsedCG.items.filter(element => {
             return element.summary === 'nato';
-          }).map(element => {
-            let start = element.start.dateTime.slice(11,16);
-            let end = element.end.dateTime.slice(11,16);
-            if(start.charAt(3) === '3') {
-              start = parseInt(start.substring(0,2)) + .5;
-            } else {
-              start = parseInt(start.substring(0,2));
-            }
-            if(end.charAt(3) === '3') {
-              end = parseFloat(end.substring(0,2)) + .5;
-            } else {
-              end = parseFloat(end.substring(0,2));
-            }
-            return (end - start);
-          }).reduce((time,next)=> {
-            return time +=next;
-          },0);
-          
+          });
+          let timeNato = totalTimes(totalTimeNato);
+
+
+
+
           let totalTimeAllies = parsedCG.items.filter(element => {
             return element.summary === 'allies';
-          }).map(element => {
-            let start = element.start.dateTime.slice(11,16);
-            let end = element.end.dateTime.slice(11,16);
-            if(start.charAt(3) === '3') {
-              start = parseInt(start.substring(0,2)) + .5;
-            } else {
-              start = parseInt(start.substring(0,2));
-            }
-            if(end.charAt(3) === '3') {
-              end = parseFloat(end.substring(0,2)) + .5;
-            } else {
-              end = parseFloat(end.substring(0,2));
-            }
-            return (end - start);
-          }).reduce((time,next)=> {
-            return time +=next;
-          },0);
+          });
+
+          let timeAllies = totalTimes(totalTimeAllies);
+
+
 
           let totalTimeArmy = parsedCG.items.filter(element => {
             return element.summary === 'army';
-          }).map(element => {
-            let start = element.start.dateTime.slice(11,16);
-            let end = element.end.dateTime.slice(11,16);
-            if(start.charAt(3) === '3') {
-              start = parseInt(start.substring(0,2)) + .5;
-            } else {
-              start = parseInt(start.substring(0,2));
-            }
-            if(end.charAt(3) === '3') {
-              end = parseFloat(end.substring(0,2)) + .5;
-            } else {
-              end = parseFloat(end.substring(0,2));
-            }
-            return (end - start);
-          }).reduce((time,next)=> {
-            return time +=next;
-          },0);
+          });
+          let timeArmy = totalTimes(totalTimeArmy);
+
+
 
           let totalTimeOfficials = parsedCG.items.filter(element => {
             return element.summary === 'officials';
-          }).map(element => {
-            let start = element.start.dateTime.slice(11,16);
-            let end = element.end.dateTime.slice(11,16);
-            if(start.charAt(3) === '3') {
-              start = parseInt(start.substring(0,2)) + .5;
-            } else {
-              start = parseInt(start.substring(0,2));
-            }
-            if(end.charAt(3) === '3') {
-              end = parseFloat(end.substring(0,2)) + .5;
-            } else {
-              end = parseFloat(end.substring(0,2));
-            }
-            return (end - start);
-          }).reduce((time,next)=> {
-            return time +=next;
-          },0);
+          });
+          let timeOfficials = totalTimes(totalTimeOfficials);
+
+
+
 
           let totalTimeSupporters = parsedCG.items.filter(element => {
             return element.summary === 'supporters';
-          }).map(element => {
-            let start = element.start.dateTime.slice(11,16);
-            let end = element.end.dateTime.slice(11,16);
-            if(start.charAt(3) === '3') {
-              start = parseInt(start.substring(0,2)) + .5;
-            } else {
-              start = parseInt(start.substring(0,2));
-            }
-            if(end.charAt(3) === '3') {
-              end = parseFloat(end.substring(0,2)) + .5;
-            } else {
-              end = parseFloat(end.substring(0,2));
-            }
-            return (end - start);
-          }).reduce((time,next)=> {
-            return time +=next;
-          },0);
+          });
+          let timeSupporters = totalTimes(totalTimeSupporters);
+
 
           let totalTimeJoint = parsedCG.items.filter(element => {
             return element.summary === 'joint';
-          }).map(element => {
-            let start = element.start.dateTime.slice(11,16);
-            let end = element.end.dateTime.slice(11,16);
-            if(start.charAt(3) === '3') {
-              start = parseInt(start.substring(0,2)) + .5;
-            } else {
-              start = parseInt(start.substring(0,2));
-            }
-            if(end.charAt(3) === '3') {
-              end = parseFloat(end.substring(0,2)) + .5;
-            } else {
-              end = parseFloat(end.substring(0,2));
-            }
-            return (end - start);
-          }).reduce((time,next)=> {
-            return time +=next;
-          },0);
+          });
+          let timeJoint = totalTimes(totalTimeJoint);
+
 
           let totalTimeStaff = parsedCG.items.filter(element => {
             return element.summary === 'staff';
-          }).map(element => {
-            let start = element.start.dateTime.slice(11,16);
-            let end = element.end.dateTime.slice(11,16);
-            if(start.charAt(3) === '3') {
-              start = parseInt(start.substring(0,2)) + .5;
-            } else {
-              start = parseInt(start.substring(0,2));
-            }
-            if(end.charAt(3) === '3') {
-              end = parseFloat(end.substring(0,2)) + .5;
-            } else {
-              end = parseFloat(end.substring(0,2));
-            }
-            return (end - start);
-          }).reduce((time,next)=> {
-            return time +=next;
-          },0);
+          });
+          let timeStaff = totalTimes(totalTimeStaff);
 
 
-          this.event.nato = totalTimeNato;
-          this.event.allies = totalTimeAllies;
-          this.event.army = totalTimeArmy;
-          this.event.officials = totalTimeOfficials;
-          this.event.supporters = totalTimeSupporters;
-          this.event.joint = totalTimeJoint;
-          this.event.staff = totalTimeStaff;
+          this.event.nato = timeNato;
+          this.event.allies = timeAllies;
+          this.event.army = timeArmy;
+          this.event.officials = timeOfficials;
+          this.event.supporters = timeSupporters;
+          this.event.joint = timeJoint;
+          this.event.staff = timeStaff;
           console.log('CG',this.event);
-          
+
           this.render(this.ready);
         });
     }
@@ -227,13 +154,13 @@
       const view = document.createElement('div');
       const list = document.createElement('ul');
 
-      const items = this.people.map( person => {
-        let item = document.createElement('li');
-        item.innerHTML = person.name;
-        return item;
-      });
+      // const items = this.people.map( person => {
+      //   let item = document.createElement('li');
+      //   item.innerHTML = person.name;
+      //   return item;
+      // });
 
-      items.forEach( list.appendChild.bind(list) );
+      // items.forEach( list.appendChild.bind(list) );
 
       view.appendChild(list);
       readyFunc(view);
@@ -241,7 +168,7 @@
 
   }
 
-  
+
 
   class COS {
     // prepare the data
