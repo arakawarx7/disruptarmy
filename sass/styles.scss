@@ -5,7 +5,7 @@ div.container {
 
 section.side {
   height: 1100px;
-  width: 350px;
+  width: 190px;
   background-color: blue;
 }
 
@@ -17,8 +17,8 @@ section.main {
 
 section.bar {
   height: 650px;
-  width: 1520px;
-  // background-color: yellow;
+  width: 1590px;
+  background-color: yellow;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,7 +27,7 @@ section.bar {
 section.bar-graph {
   height: 600px;
   width: 1200px;
-  // background-color: green;
+  background-color: green;
 }
 
 section.key {
@@ -37,7 +37,7 @@ section.key {
 }
 
 section.pie {
-  height: 450px;
-  width: 1520px;
+  height: 420px;
+  width: 1590px;
   background-color: red;
 }

@@ -21,6 +21,12 @@
       switch(route){
         case 'CG':
           this.state = new app.states.CG();
+          // this.state.rendered( (element) => {
+          //   this.container.innerHTML = '';
+          //   this.container.appendChild( element );
+          //
+          // });
+
           break;
         case 'places':
           this.state = new app.states.Places();
@@ -29,7 +35,7 @@
           this.state = new app.states.Spaceships();
           break;
         default:
-          // this.state = new app.states.Default();
+          this.state = new app.states.Default();
       }
 
       // wait for state to be rendered
@@ -37,11 +43,12 @@
       this.state.rendered( (element) => {
         this.container.innerHTML = '';
         this.container.appendChild( element );
+
       });
     }
   }
 
-  window.app.Router = new Router('container');
+  window.app.Router = new Router('chart1');
 
   // restore state on load
   let initialRoute = window.location.hash ? window.location.hash.substr(1) : '';

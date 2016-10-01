@@ -4,7 +4,7 @@ div.container {
 
 section.side {
   height: 1100px;
-  width: 350px;
+  width: 190px;
   background-color: blue; }
 
 section.main {
@@ -14,14 +14,16 @@ section.main {
 
 section.bar {
   height: 650px;
-  width: 1520px;
+  width: 1590px;
+  background-color: yellow;
   display: flex;
   flex-direction: row;
   align-items: center; }
 
 section.bar-graph {
   height: 600px;
-  width: 1200px; }
+  width: 1200px;
+  background-color: green; }
 
 section.key {
   height: 600px;
@@ -29,6 +31,6 @@ section.key {
   background-color: grey; }
 
 section.pie {
-  height: 450px;
-  width: 1520px;
+  height: 420px;
+  width: 1590px;
   background-color: red; }

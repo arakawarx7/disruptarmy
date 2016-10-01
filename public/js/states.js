@@ -18,6 +18,10 @@
       this.ready = placeholder => true;
     }
 
+    unmount(){
+
+    }
+
     rendered(callback){
       // render now
       this.render(callback);
@@ -53,7 +57,7 @@
       this.ready = placeholder => true;
 
       App.utils.Get('js/json/CG.json', (data) => {
-          console.log('the data',data);
+          // console.log('the data',data);
           const parsedCG = JSON.parse(data);
 
 
@@ -80,7 +84,7 @@
           }).reduce((time,next)=> {
             return time +=next;
           },0);
-          
+
           let totalTimeAllies = parsedCG.items.filter(element => {
             return element.summary === 'allies';
           }).map(element => {
@@ -209,11 +213,18 @@
           this.event.supporters = totalTimeSupporters;
           this.event.joint = totalTimeJoint;
           this.event.staff = totalTimeStaff;
-          console.log('CG',this.event);
-          
+          // console.log('CG',this.event);
+          console.log('hello');
+          var chart1 = gimmeChart(this.event);
           this.render(this.ready);
+          var chart1Container = document.getElementById('chart1');
+          chart1Container.appendChild(chart1);
         });
     }
+
+        unmount(){
+
+        }
 
     // render the data, when data is ready
     // sets the "ready to rendor" callback
@@ -223,25 +234,10 @@
 
     // send the final rendered dom element to callback
     // readyFunc : function(element)
-    render(readyFunc){
-      const view = document.createElement('div');
-      const list = document.createElement('ul');
-
-      const items = this.people.map( person => {
-        let item = document.createElement('li');
-        item.innerHTML = person.name;
-        return item;
-      });
-
-      items.forEach( list.appendChild.bind(list) );
-
-      view.appendChild(list);
-      readyFunc(view);
-    }
 
   }
 
-  
+
 
   class COS {
     // prepare the data
@@ -276,33 +272,38 @@
 
 
           this.event = parsedCOS.items;
-          this.render(this.ready);
+          // this.render(this.ready);
         });
     }
 
+
+        unmount(){
+
+        }
+
     // render the data, when data is ready
     // sets the "ready to rendor" callback
-    rendered(callback){
-      this.ready = callback;
-    }
+    // rendered(callback){
+    //   this.ready = callback;
+    // }
 
     // send the final rendered dom element to callback
     // readyFunc : function(element)
-    render(readyFunc){
-      const view = document.createElement('div');
-      const list = document.createElement('ul');
-
-      const items = this.people.map( person => {
-        let item = document.createElement('li');
-        item.innerHTML = person.name;
-        return item;
-      });
-
-      items.forEach( list.appendChild.bind(list) );
-
-      view.appendChild(list);
-      readyFunc(view);
-    }
+    // render(readyFunc){
+    //   const view = document.createElement('div');
+    //   const list = document.createElement('ul');
+    //
+    //   const items = this.people.map( person => {
+    //     let item = document.createElement('li');
+    //     item.innerHTML = person.name;
+    //     return item;
+    //   });
+    //
+    //   items.forEach( list.appendChild.bind(list) );
+    //
+    //   view.appendChild(list);
+    //   readyFunc(view);
+    // }
 
   }
 
