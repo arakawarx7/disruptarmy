@@ -48,7 +48,7 @@
 
         // execute an xhr request to http://swapi.co/api/people endpoint
         App.utils.Get('js/json/CG.json', (data) => {
-          console.log('data',data);
+          console.log('the data',data);
           const parsedCG = JSON.parse(data);
           this.event = parsedCG.items;
           this.render(this.ready);
