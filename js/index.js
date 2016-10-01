@@ -553,7 +553,7 @@
     bar1.onclick = function() {
       big.innerHTML = "17.8% Supporters"
       med.innerHTML = "17.5% Officials"
-      small.innerHTML = "13.3% Staff"
+      small.innerHTML = "15.0% Staff"
 
       var cgChart = c3.generate({
          bindto: '#pieChart',
@@ -698,7 +698,7 @@
       bar5.onclick = function() {
 
         big.innerHTML = "58.5% Officials"
-        med.innerHTML = "16.5% Allies"
+        med.innerHTML = "16.9% Allies"
         small.innerHTML = "10.8% Joint"
 
         var cgChart = c3.generate({

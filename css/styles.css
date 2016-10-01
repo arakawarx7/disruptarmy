@@ -4,10 +4,10 @@
 
 div.container {
   display: flex;
-  justify-content: space-between; }
+  justify-content: center; }
 
 nav {
-  width: 1800px;
+  width: auto;
   height: 50px;
   position: absolute;
   display: flex;
@@ -23,13 +23,14 @@ nav {
     nav div h1 {
       font-family: 'Raleway', sans-serif;
       font-size: 35px;
-      color: gray; }
+      color: gray;
+      margin-left: -1350px; }
 
 section.main {
   display: flex;
   justify-content: space-around;
   flex-direction: column-reverse;
-  width: 1800px;
+  width: auto;
   margin-left: 10px; }
 
 section.bar {
@@ -38,36 +39,52 @@ section.bar {
   display: flex;
   flex-direction: row;
   align-items: center;
-  flex-flow: row nowrap; }
+  flex-flow: row nowrap;
+  overflow: auto; }
 
 section.bar-graph {
   height: 400px;
-  width: 200px;
+  flex: 1 1 200px;
   margin-left: 10px;
   margin-right: 10px;
   transition: all 200ms ease-in;
-  transition: .3s;
-  max-width: 20%;
-  min-width: 10%; }
+  transition: .3s; }
 
 section.bar-graph:hover {
   transition: .5s;
-  max-width: 40%;
-  flex-grow: 2;
+  flex: 0 0 230px;
+  transform: scale(1.1);
   cursor: pointer; }
 
 section.key {
   height: 400px;
-  width: 230px;
-  margin-left: 10px; }
-
-li {
-  margin-bottom: 30px;
-  list-style-type: disc; }
+  flex: 0 0 230px;
+  margin-left: 10px;
+  width: 180px; }
+  section.key li {
+    list-style-type: none;
+    padding: 15px;
+    color: #f2f2f2;
+    text-shadow: .5px .5px #4d4d4d;
+    margin-bottom: 3px; }
+    section.key li#nato {
+      background-color: #695a5a; }
+    section.key li#allies {
+      background-color: #869f9c; }
+    section.key li#army {
+      background-color: #babc77; }
+    section.key li#officials {
+      background-color: #cfd8b6; }
+    section.key li#supporters {
+      background-color: #43442b; }
+    section.key li#joint {
+      background-color: #c8707e; }
+    section.key li#staff {
+      background-color: #5aa08d; }
 
 section.pie {
   height: 800px;
-  width: 1800px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;

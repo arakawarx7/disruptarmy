@@ -26,4 +26,12 @@ gulp.task('watch', function () {
   gulp.watch('./public/**/*', ['livereload']);
 });
 
+gulp.task('gh-sass',()=> {
+  return gulp.src('./sass/*.scss')
+      .pipe(sass({ errLogToConsole: true }))
+      .pipe(gulp.dest('./css'));
+})
+
 gulp.task('default', ['connect', 'watch', 'sass']);
+
+gulp.task('build-gh-pages',['gh-sass'])
