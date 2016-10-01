@@ -58,12 +58,37 @@ section.bar-graph:hover {
 
 section.key {
   height: 400px;
+<<<<<<< Updated upstream
   flex: 0 0 230px;
   margin-left: 10px; }
 
 li {
   margin-bottom: 30px;
   list-style-type: disc; }
+=======
+  width: 180px;
+  margin-left: 40px; }
+  section.key li {
+    list-style-type: none;
+    padding: 15px;
+    color: #f2f2f2;
+    text-shadow: .5px .5px #4d4d4d;
+    margin-bottom: 3px; }
+    section.key li#nato {
+      background-color: #695a5a; }
+    section.key li#allies {
+      background-color: #869f9c; }
+    section.key li#army {
+      background-color: #babc77; }
+    section.key li#officials {
+      background-color: #cfd8b6; }
+    section.key li#supporters {
+      background-color: #43442b; }
+    section.key li#joint {
+      background-color: #c8707e; }
+    section.key li#staff {
+      background-color: #5aa08d; }
+>>>>>>> Stashed changes
 
 section.pie {
   height: 800px;
