@@ -543,6 +543,7 @@
       items.forEach( list.appendChild.bind(list) );
 
       view.appendChild(list);
+      //view.appendChild(chart.element);
       readyFunc(view);
     }
 
