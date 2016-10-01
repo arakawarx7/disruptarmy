@@ -52,6 +52,8 @@
         console.log('the data',data);
         const parsedCG = JSON.parse(data);
 
+        
+
         let totalTimeNato = parsedCG.items.filter(element => {
           return element.summary === 'nato';
         });
