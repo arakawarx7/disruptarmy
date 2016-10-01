@@ -12,28 +12,27 @@
   // each state will prepare the data to be rendered
   // then have a function that returns the new state dom tree
 
-  class Default {
-    constructor(){
-      this.title = 'Poll Demo';
-      this.ready = placeholder => true;
-    }
-
-    rendered(callback){
-      // render now
-      this.render(callback);
-    }
-
-    render(readyFunc){
-      const view = document.createElement('div');
-      const header = document.createElement('h2');
-
-      header.innerHTML = this.title;
-
-      view.appendChild(header);
-      readyFunc(view);
-    }
+  function totalTimes(array){
+    return array.map(element => {
+      let start = element.start.dateTime.slice(11,16);
+      let end = element.end.dateTime.slice(11,16);
+      if(start.charAt(3) === '3') {
+        start = parseInt(start.substring(0,2)) + .5;
+      } else {
+        start = parseInt(start.substring(0,2));
+      }
+      if(end.charAt(3) === '3') {
+        end = parseFloat(end.substring(0,2)) + .5;
+      } else {
+        end = parseFloat(end.substring(0,2));
+      }
+      return (end - start);
+    }).reduce((time,next)=> {
+      return time +=next;
+    },0);
 
   }
+
 
   class CG {
     // prepare the data
@@ -49,121 +48,53 @@
         staff: null
       };
 
-      // callback function to run after data is ready
-      this.ready = placeholder => true;
-
       App.utils.Get('js/json/CG.json', (data) => {
-          console.log('the data',data);
-          const parsedCG = JSON.parse(data);
+        console.log('the data',data);
+        const parsedCG = JSON.parse(data);
 
-
-
-          function totalTimes(array){
-          return array.map(element => {
-            let start = element.start.dateTime.slice(11,16);
-            let end = element.end.dateTime.slice(11,16);
-            if(start.charAt(3) === '3') {
-              start = parseInt(start.substring(0,2)) + .5;
-            } else {
-              start = parseInt(start.substring(0,2));
-            }
-            if(end.charAt(3) === '3') {
-              end = parseFloat(end.substring(0,2)) + .5;
-            } else {
-              end = parseFloat(end.substring(0,2));
-            }
-            return (end - start);
-          }).reduce((time,next)=> {
-            return time +=next;
-          },0);
-
-        }
-
-          //Very non-dry version of totaling all the times spent in each category
-          let totalTimeNato = parsedCG.items.filter(element => {
-            return element.summary === 'nato';
-          });
-          let timeNato = totalTimes(totalTimeNato);
-
-
-
-
-          let totalTimeAllies = parsedCG.items.filter(element => {
-            return element.summary === 'allies';
-          });
-
-          let timeAllies = totalTimes(totalTimeAllies);
-
-
-
-          let totalTimeArmy = parsedCG.items.filter(element => {
-            return element.summary === 'army';
-          });
-          let timeArmy = totalTimes(totalTimeArmy);
-
-
-
-          let totalTimeOfficials = parsedCG.items.filter(element => {
-            return element.summary === 'officials';
-          });
-          let timeOfficials = totalTimes(totalTimeOfficials);
-
-
-
-
-          let totalTimeSupporters = parsedCG.items.filter(element => {
-            return element.summary === 'supporters';
-          });
-          let timeSupporters = totalTimes(totalTimeSupporters);
-
-
-          let totalTimeJoint = parsedCG.items.filter(element => {
-            return element.summary === 'joint';
-          });
-          let timeJoint = totalTimes(totalTimeJoint);
-
-
-          let totalTimeStaff = parsedCG.items.filter(element => {
-            return element.summary === 'staff';
-          });
-          let timeStaff = totalTimes(totalTimeStaff);
-
-
-          this.event.nato = timeNato;
-          this.event.allies = timeAllies;
-          this.event.army = timeArmy;
-          this.event.officials = timeOfficials;
-          this.event.supporters = timeSupporters;
-          this.event.joint = timeJoint;
-          this.event.staff = timeStaff;
-          console.log('CG',this.event);
-
-          this.render(this.ready);
+        let totalTimeNato = parsedCG.items.filter(element => {
+          return element.summary === 'nato';
         });
-    }
+        let timeNato = totalTimes(totalTimeNato);
 
-    // render the data, when data is ready
-    // sets the "ready to rendor" callback
-    rendered(callback){
-      this.ready = callback;
-    }
+        let totalTimeAllies = parsedCG.items.filter(element => {
+          return element.summary === 'allies';
+        });
+        let timeAllies = totalTimes(totalTimeAllies);
 
-    // send the final rendered dom element to callback
-    // readyFunc : function(element)
-    render(readyFunc){
-      const view = document.createElement('div');
-      const list = document.createElement('ul');
+        let totalTimeArmy = parsedCG.items.filter(element => {
+          return element.summary === 'army';
+        });
+        let timeArmy = totalTimes(totalTimeArmy);
 
-      // const items = this.people.map( person => {
-      //   let item = document.createElement('li');
-      //   item.innerHTML = person.name;
-      //   return item;
-      // });
+        let totalTimeOfficials = parsedCG.items.filter(element => {
+          return element.summary === 'officials';
+        });
+        let timeOfficials = totalTimes(totalTimeOfficials);
 
-      // items.forEach( list.appendChild.bind(list) );
+        let totalTimeSupporters = parsedCG.items.filter(element => {
+          return element.summary === 'supporters';
+        });
+        let timeSupporters = totalTimes(totalTimeSupporters);
 
-      view.appendChild(list);
-      readyFunc(view);
+        let totalTimeJoint = parsedCG.items.filter(element => {
+          return element.summary === 'joint';
+        });
+        let timeJoint = totalTimes(totalTimeJoint);
+
+        let totalTimeStaff = parsedCG.items.filter(element => {
+          return element.summary === 'staff';
+        });
+        let timeStaff = totalTimes(totalTimeStaff);
+
+        this.event.nato = timeNato;
+        this.event.allies = timeAllies;
+        this.event.army = timeArmy;
+        this.event.officials = timeOfficials;
+        this.event.supporters = timeSupporters;
+        this.event.joint = timeJoint;
+        this.event.staff = timeStaff;
+        });
     }
 
   }
@@ -174,11 +105,16 @@
     // prepare the data
     constructor(){
       // initial state
-      this.event = [];
-
+      this.event = {
+        nato: null,
+        allies: null,
+        army: null,
+        officials: null,
+        supporters: null,
+        joint: null,
+        staff: null
+      };
       // callback function to run after data is ready
-      this.ready = placeholder => true;
-
       App.utils.Get('js/json/CG.json', (data) => {
           console.log('the data',data);
           const parsedCOS = JSON.parse(data);
@@ -207,29 +143,7 @@
         });
     }
 
-    // render the data, when data is ready
-    // sets the "ready to rendor" callback
-    rendered(callback){
-      this.ready = callback;
-    }
-
-    // send the final rendered dom element to callback
-    // readyFunc : function(element)
-    render(readyFunc){
-      const view = document.createElement('div');
-      const list = document.createElement('ul');
-
-      const items = this.people.map( person => {
-        let item = document.createElement('li');
-        item.innerHTML = person.name;
-        return item;
-      });
-
-      items.forEach( list.appendChild.bind(list) );
-
-      view.appendChild(list);
-      readyFunc(view);
-    }
+    
 
   }
 
