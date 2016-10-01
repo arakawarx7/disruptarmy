@@ -1,7 +1,19 @@
+* {
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+}
+
 div.container {
   display: flex;
   justify-content: space-between;
 }
+
+// nav {
+//   width: 1800px;
+//   height: 50px;
+//   background-color: yellow;
+//   position: absolute;
+// }
 
 // section.side {
 //   height: 1100px;
@@ -18,10 +30,11 @@ section.main {
 section.bar {
   height: 450px;
   width: 1800px;
-  background-color: yellow;
+  // background-color: #bdbdbd;
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-flow: row nowrap;
 }
 
 section.bar-graph {
@@ -29,8 +42,18 @@ section.bar-graph {
   width: 200px;
   margin-left: 10px;
   margin-right: 10px;
-  background-color: green;
+  // background-color: #ededed;
   transition: all 200ms ease-in;
+  transition: .3s;
+  max-width: 20%;
+  min-width: 10%;
+}
+
+section.bar-graph:hover {
+  transition: .5s;
+  max-width: 40%;
+  flex-grow: 2;
+  cursor: pointer;
 }
 
 // section.bar-graph:hover {
@@ -49,21 +72,20 @@ section.key {
 section.pie {
   height: 800px;
   width: 1800;
-  background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ededed;
 }
 
 section.big {
   height: 600px;
   width: 600px;
-  background-color: blue;
 }
 
-section.info {
-  height: 400px;
-  width: 400px;
-  margin-left: 10px;
-  background-color: grey;
-}
+// section.info {
+//   height: 400px;
+//   width: 400px;
+//   margin-left: 10px;
+//   background-color: grey;
+// }

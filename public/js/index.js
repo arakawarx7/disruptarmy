@@ -1,17 +1,3 @@
-var bar2 = document.getElementById('chart2');
-var pieChart = document.getElementById('pieChart')
-
-bar2.onclick = function() {
-  bar2.setAttribute("style","max-width:200px");
-  bar2.setAttribute("style","max-height:200px");
-  console.log("TEST");
-};
-
-
-chart3.onclick = function() {
-
-}
-
 (function(window) {
   // namespacing App
   window.app = window.app || {};
@@ -218,13 +204,13 @@ chart3.onclick = function() {
           ],
           type: 'bar',
           colors: {
-            NATO: '#ff0000',
-            Allies: '#0f0f0f',
-            Army: '#00ff00',
-            Officials: '000fff',
-            Supporters: 'fff000',
-            Joint: '0000ff',
-            Staff: 'f0f0ff'
+            NATO: 'rgb(105,90,90)',
+            Allies: 'rgb(134,159,156)',
+            Army: 'rgb(186,188,119)',
+            Officials: 'rgb(207,216,182)',
+            Supporters: '#43442B',
+            Joint: '#c8707e',
+            Staff: '#5AA08D'
           }
         },
 
@@ -235,7 +221,11 @@ chart3.onclick = function() {
         axis: {
           x: {
             type: 'category',
-            categories: ['G1']
+            categories: ['Commanding General']
+          },
+
+          y: {
+            show: false
           }
         },
 
@@ -264,22 +254,14 @@ chart3.onclick = function() {
           ],
           type: 'bar',
           colors: {
-            NATO: '#ff0000',
-            Allies: '#0f0f0f',
-            Army: '#00ff00',
-            Officials: '000fff',
-            Supporters: 'fff000',
-            Joint: '0000ff',
-            Staff: 'f0f0ff'
+            NATO: 'rgb(105,90,90)',
+            Allies: 'rgb(134,159,156)',
+            Army: 'rgb(186,188,119)',
+            Officials: 'rgb(207,216,182)',
+            Supporters: '#43442B',
+            Joint: '#c8707e',
+            Staff: '#5AA08D'
           }
-        },
-
-        onmouseover: function() {
-          chart2.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart2.transform('bar');
         },
 
         legend: {
@@ -289,7 +271,7 @@ chart3.onclick = function() {
         axis: {
           x: {
             type: 'category',
-            categories: ['G2']
+            categories: ['Chief of Staff']
           },
 
           y: {
@@ -322,22 +304,14 @@ chart3.onclick = function() {
           ],
           type: 'bar',
           colors: {
-            NATO: '#ff0000',
-            Allies: '#0f0f0f',
-            Army: '#00ff00',
-            Officials: '000fff',
-            Supporters: 'fff000',
-            Joint: '0000ff',
-            Staff: 'f0f0ff'
+            NATO: 'rgb(105,90,90)',
+            Allies: 'rgb(134,159,156)',
+            Army: 'rgb(186,188,119)',
+            Officials: 'rgb(207,216,182)',
+            Supporters: '#43442B',
+            Joint: '#c8707e',
+            Staff: '#5AA08D'
           }
-        },
-
-        onmouseover: function() {
-          chart3.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart3.transform('bar');
         },
 
         legend: {
@@ -347,7 +321,7 @@ chart3.onclick = function() {
         axis: {
           x: {
             type: 'category',
-            categories: ['G3']
+            categories: ['DCG - Army Reserve']
           },
 
           y: {
@@ -380,22 +354,14 @@ chart3.onclick = function() {
           ],
           type: 'bar',
           colors: {
-            NATO: '#ff0000',
-            Allies: '#0f0f0f',
-            Army: '#00ff00',
-            Officials: '000fff',
-            Supporters: 'fff000',
-            Joint: '0000ff',
-            Staff: 'f0f0ff'
+            NATO: 'rgb(105,90,90)',
+            Allies: 'rgb(134,159,156)',
+            Army: 'rgb(186,188,119)',
+            Officials: 'rgb(207,216,182)',
+            Supporters: '#43442B',
+            Joint: '#c8707e',
+            Staff: '#5AA08D'
           }
-        },
-
-        onmouseover: function() {
-          chart4.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart4.transform('bar');
         },
 
         legend: {
@@ -405,7 +371,7 @@ chart3.onclick = function() {
         axis: {
           x: {
             type: 'category',
-            categories: ['G4']
+            categories: ['DCG - National Guard']
           },
 
           y: {
@@ -438,22 +404,14 @@ chart3.onclick = function() {
           ],
           type: 'bar',
           colors: {
-            NATO: '#ff0000',
-            Allies: '#0f0f0f',
-            Army: '#00ff00',
-            Officials: '000fff',
-            Supporters: 'fff000',
-            Joint: '0000ff',
-            Staff: 'f0f0ff'
+            NATO: 'rgb(105,90,90)',
+            Allies: 'rgb(134,159,156)',
+            Army: 'rgb(186,188,119)',
+            Officials: 'rgb(207,216,182)',
+            Supporters: '#43442B',
+            Joint: '#c8707e',
+            Staff: '#5AA08D'
           }
-        },
-
-        onmouseover: function() {
-          chart5.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart5.transform('bar');
         },
 
         legend: {
@@ -463,7 +421,7 @@ chart3.onclick = function() {
         axis: {
           x: {
             type: 'category',
-            categories: ['G5']
+            categories: ['DCG - National']
           },
 
           y: {
@@ -496,22 +454,14 @@ chart3.onclick = function() {
           ],
           type: 'bar',
           colors: {
-            NATO: '#ff0000',
-            Allies: '#0f0f0f',
-            Army: '#00ff00',
-            Officials: '000fff',
-            Supporters: 'fff000',
-            Joint: '0000ff',
-            Staff: 'f0f0ff'
+            NATO: 'rgb(105,90,90)',
+            Allies: 'rgb(134,159,156)',
+            Army: 'rgb(186,188,119)',
+            Officials: 'rgb(207,216,182)',
+            Supporters: '#43442B',
+            Joint: '#c8707e',
+            Staff: '#5AA08D'
           }
-        },
-
-        onmouseover: function() {
-          chart6.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart6.transform('bar');
         },
 
         legend: {
@@ -521,7 +471,7 @@ chart3.onclick = function() {
         axis: {
           x: {
             type: 'category',
-            categories: ['G6']
+            categories: ['DCG - South']
           },
 
           y: {
@@ -554,32 +504,24 @@ chart3.onclick = function() {
           ],
           type: 'bar',
           colors: {
-            NATO: '#ff0000',
-            Allies: '#0f0f0f',
-            Army: '#00ff00',
-            Officials: '000fff',
-            Supporters: 'fff000',
-            Joint: '0000ff',
-            Staff: 'f0f0ff'
+            NATO: 'rgb(105,90,90)',
+            Allies: 'rgb(134,159,156)',
+            Army: 'rgb(186,188,119)',
+            Officials: 'rgb(207,216,182)',
+            Supporters: '#43442B',
+            Joint: '#c8707e',
+            Staff: '#5AA08D'
           }
         },
 
-        onmouseover: function() {
-          chart7.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart7.transform('bar');
-        },
-
         legend: {
-          position: 'right'
+          show: false
         },
 
         axis: {
           x: {
             type: 'category',
-            categories: ['G7']
+            categories: ['G3']
           },
 
           y: {
@@ -596,6 +538,236 @@ chart3.onclick = function() {
         }
       });
     }
+    var pie = document.getElementById('pieChart');
+    var bar1 = document.getElementById('chart1');
+    var bar2 = document.getElementById('chart2');
+    var bar3 = document.getElementById('chart3');
+    var bar4 = document.getElementById('chart4');
+    var bar5 = document.getElementById('chart5');
+    var bar6 = document.getElementById('chart6');
+    var bar7 = document.getElementById('chart7');
+
+    bar1.onclick = function() {
+      // if ( pie.firstChild !== undefined) {
+      //   pie.removeChild(pie.firstChild);
+      // }
+      var cgChart = c3.generate({
+         bindto: '#pieChart',
+           data: {
+             columns: [
+               ['NATO',cgEvents.nato],
+               ['Allies',cgEvents.allies],
+               ['Army',cgEvents.army],
+               ['Officials',cgEvents.officials],
+               ['Supporters',cgEvents.supporters],
+               ['Joint',cgEvents.joint],
+               ['Staff',cgEvents.staff]
+             ],
+             type: 'donut',
+             colors: {
+               NATO: 'rgb(105,90,90)',
+               Allies: 'rgb(134,159,156)',
+               Army: 'rgb(186,188,119)',
+               Officials: 'rgb(207,216,182)',
+               Supporters: '#43442B',
+               Joint: '#c8707e',
+               Staff: '#5AA08D'
+             }
+           },
+
+         });
+       }
+
+     bar2.onclick = function() {
+       // if ( pie.firstChild !== undefined) {
+       //   pie.removeChild(pie.firstChild);
+       // }
+       var cgChart = c3.generate({
+          bindto: '#pieChart',
+            data: {
+              columns: [
+               ['NATO',cosEvents.nato],
+               ['Allies',cosEvents.allies],
+               ['Army',cosEvents.army],
+               ['Officials',cosEvents.officials],
+               ['Supporters',cosEvents.supporters],
+               ['Joint',cosEvents.joint],
+               ['Staff',cosEvents.staff]
+              ],
+              type: 'donut',
+              colors: {
+                NATO: 'rgb(105,90,90)',
+                Allies: 'rgb(134,159,156)',
+                Army: 'rgb(186,188,119)',
+                Officials: 'rgb(207,216,182)',
+                Supporters: '#43442B',
+                Joint: '#c8707e',
+                Staff: '#5AA08D'
+              }
+            },
+
+          });
+        }
+
+      bar3.onclick = function() {
+        // if ( pie.firstChild !== undefined) {
+        //   pie.removeChild(pie.firstChild);
+        // }
+        var cgChart = c3.generate({
+           bindto: '#pieChart',
+             data: {
+               columns: [
+               ['NATO',dcgarEvents.nato],
+               ['Allies',dcgarEvents.allies],
+               ['Army',dcgarEvents.army],
+               ['Officials',dcgarEvents.officials],
+               ['Supporters',dcgarEvents.supporters],
+               ['Joint',dcgarEvents.joint],
+               ['Staff',dcgarEvents.staff]
+               ],
+               type: 'donut',
+               colors: {
+                 NATO: 'rgb(105,90,90)',
+                 Allies: 'rgb(134,159,156)',
+                 Army: 'rgb(186,188,119)',
+                 Officials: 'rgb(207,216,182)',
+                 Supporters: '#43442B',
+                 Joint: '#c8707e',
+                 Staff: '#5AA08D'
+               }
+             },
+
+           });
+         }
+
+     bar4.onclick = function() {
+       // if ( pie.firstChild !== undefined) {
+       //   pie.removeChild(pie.firstChild);
+       // }
+       var cgChart = c3.generate({
+          bindto: '#pieChart',
+            data: {
+              columns: [
+              ['NATO',dcgnEvents.nato],
+              ['Allies',dcgnEvents.allies],
+              ['Army',dcgnEvents.army],
+              ['Officials',dcgnEvents.officials],
+              ['Supporters',dcgnEvents.supporters],
+              ['Joint',dcgnEvents.joint],
+              ['Staff',dcgnEvents.staff]
+              ],
+              type: 'donut',
+              colors: {
+                NATO: 'rgb(105,90,90)',
+                Allies: 'rgb(134,159,156)',
+                Army: 'rgb(186,188,119)',
+                Officials: 'rgb(207,216,182)',
+                Supporters: '#43442B',
+                Joint: '#c8707e',
+                Staff: '#5AA08D'
+              }
+            },
+
+          });
+        }
+
+      bar5.onclick = function() {
+        // if ( pie.firstChild !== undefined) {
+        //   pie.removeChild(pie.firstChild);
+        // }
+        var cgChart = c3.generate({
+           bindto: '#pieChart',
+             data: {
+               columns: [
+               ['NATO',dcgngEvents.nato],
+               ['Allies',dcgngEvents.allies],
+               ['Army',dcgngEvents.army],
+               ['Officials',dcgngEvents.officials],
+               ['Supporters',dcgngEvents.supporters],
+               ['Joint',dcgngEvents.joint],
+               ['Staff',dcgngEvents.staff]
+               ],
+               type: 'donut',
+               colors: {
+                 NATO: 'rgb(105,90,90)',
+                 Allies: 'rgb(134,159,156)',
+                 Army: 'rgb(186,188,119)',
+                 Officials: 'rgb(207,216,182)',
+                 Supporters: '#43442B',
+                 Joint: '#c8707e',
+                 Staff: '#5AA08D'
+               }
+             },
+
+           });
+         }
+
+     bar6.onclick = function() {
+       // if ( pie.firstChild !== undefined) {
+       //   pie.removeChild(pie.firstChild);
+       // }
+       var cgChart = c3.generate({
+          bindto: '#pieChart',
+            data: {
+              columns: [
+              ['NATO',dcgsEvents.nato],
+              ['Allies',dcgsEvents.allies],
+              ['Army',dcgsEvents.army],
+              ['Officials',dcgsEvents.officials],
+              ['Supporters',dcgsEvents.supporters],
+              ['Joint',dcgsEvents.joint],
+              ['Staff',dcgsEvents.staff]
+              ],
+              type: 'donut',
+              colors: {
+                NATO: 'rgb(105,90,90)',
+                Allies: 'rgb(134,159,156)',
+                Army: 'rgb(186,188,119)',
+                Officials: 'rgb(207,216,182)',
+                Supporters: '#43442B',
+                Joint: '#c8707e',
+                Staff: '#5AA08D'
+              }
+            },
+
+          });
+        }
+
+      bar7.onclick = function() {
+        // if ( pie.firstChild !== undefined) {
+        //   pie.removeChild(pie.firstChild);
+        // }
+      var cgChart = c3.generate({
+         bindto: '#pieChart',
+           data: {
+             columns: [
+             ['NATO',g3Events.nato],
+             ['Allies',g3Events.allies],
+             ['Army',g3Events.army],
+             ['Officials',g3Events.officials],
+             ['Supporters',g3Events.supporters],
+             ['Joint',g3Events.joint],
+             ['Staff',g3Events.staff]
+             ],
+             type: 'donut',
+
+             colors: {
+               NATO: 'rgb(105,90,90)',
+               Allies: 'rgb(134,159,156)',
+               Army: 'rgb(186,188,119)',
+               Officials: 'rgb(207,216,182)',
+               Supporters: '#43442B',
+               Joint: '#c8707e',
+               Staff: '#5AA08D'
+             }
+           },
+
+           donut: {
+             title: "G3"  
+           }
+
+         });
+       }
 
 
 }(window));
