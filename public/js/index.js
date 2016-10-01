@@ -1,3 +1,11 @@
+var bar2 = document.getElementById('chart2');
+var pieChart = document.getElementById('pieChart')
+
+bar2.onclick = function() {
+  bar2.setAttribute("style","max-width:200px");
+  bar2.setAttribute("style","max-height:200px");
+  console.log("TEST");
+};
 
 (function(window) {
   window.app = window.app || {};
@@ -74,14 +82,6 @@ function gimmeChart(categoryObject) {
           }
         },
 
-        onmouseover: function() {
-          chart2.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart2.transform('bar');
-        },
-
         legend: {
           show: false
         },
@@ -128,14 +128,6 @@ function gimmeChart(categoryObject) {
             Joint: '0000ff',
             Staff: 'f0f0ff'
           }
-        },
-
-        onmouseover: function() {
-          chart3.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart3.transform('bar');
         },
 
         legend: {
@@ -186,14 +178,6 @@ function gimmeChart(categoryObject) {
           }
         },
 
-        onmouseover: function() {
-          chart4.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart4.transform('bar');
-        },
-
         legend: {
           show: false
         },
@@ -240,14 +224,6 @@ function gimmeChart(categoryObject) {
             Joint: '0000ff',
             Staff: 'f0f0ff'
           }
-        },
-
-        onmouseover: function() {
-          chart5.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart5.transform('bar');
         },
 
         legend: {
@@ -298,14 +274,6 @@ function gimmeChart(categoryObject) {
           }
         },
 
-        onmouseover: function() {
-          chart6.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart6.transform('bar');
-        },
-
         legend: {
           show: false
         },
@@ -354,16 +322,8 @@ function gimmeChart(categoryObject) {
           }
         },
 
-        onmouseover: function() {
-          chart7.transform('donut');
-        },
-
-        onmouseout: function() {
-          chart7.transform('bar');
-        },
-
         legend: {
-          position: 'right'
+          show: false
         },
 
         axis: {
@@ -388,3 +348,7 @@ function gimmeChart(categoryObject) {
 
 }
 (window))
+
+chart3.onclick = function() {
+
+}

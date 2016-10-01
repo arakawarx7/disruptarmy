@@ -3,11 +3,11 @@ div.container {
   justify-content: space-between;
 }
 
-section.side {
-  height: 1100px;
-  width: 190px;
-  background-color: blue;
-}
+// section.side {
+//   height: 1100px;
+//   width: 190px;
+//   background-color: blue;
+// }
 
 section.main {
   display: flex;
@@ -16,8 +16,8 @@ section.main {
 }
 
 section.bar {
-  height: 650px;
-  width: 1590px;
+  height: 450px;
+  width: 1800px;
   background-color: yellow;
   display: flex;
   flex-direction: row;
@@ -25,19 +25,45 @@ section.bar {
 }
 
 section.bar-graph {
-  height: 600px;
-  width: 1200px;
+  height: 400px;
+  width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
   background-color: green;
+  transition: all 200ms ease-in;
 }
 
+// section.bar-graph:hover {
+//   transition: all 200ms ease-in;
+//   height: 600px;
+//   width: 500px;
+// }
+
 section.key {
-  height: 600px;
-  width: 300px;
+  height: 400px;
+  width: 230px;
+  margin-left: 10px;
   background-color: grey;
 }
 
 section.pie {
-  height: 420px;
-  width: 1590px;
+  height: 800px;
+  width: 1800;
   background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.big {
+  height: 600px;
+  width: 600px;
+  background-color: blue;
+}
+
+section.info {
+  height: 400px;
+  width: 400px;
+  margin-left: 10px;
+  background-color: grey;
 }
