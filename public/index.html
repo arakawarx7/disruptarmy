@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <nav><div><h1>EXECUTIVE DASHBOARD</h1></div></nav>
+
+    <!-- <section class="side"></section> -->
+
+    <section class="main">
+      <section class="pie">
+        <section id="pieChart" class="big"></section>
+        <section class="info"></section>
+        <section class="scrolling">
+          <section id = "info" class="scroller">
+            <h1 id = "big-words"></h1>
+            <h2 id = "med-words"></h2>
+            <h3 id = "small-words"></h3>
+          </section>
+        </section>
+      </section>
+
+      <section class="bar">
+        <section id="chart1" class="bar-graph"></section>
+        <section id="chart2" class="bar-graph"></section>
+        <section id = "chart3" class="bar-graph"></section>
+        <section id="chart4" class="bar-graph"></section>
+        <section id="chart5" class="bar-graph"></section>
+        <section id = "chart6" class="bar-graph"></section>
+        <section id="chart7" class="bar-graph"></section>
+        <section class="key">
+          <ul>
+            <li style = "color:rgb(105,90,90)" ><span style = "color: #000000">Nato</span></li>
+            <li style = "color:rgb(134,159,156)" ><span style = "color: #000000">Allies</span></li>
+            <li style = "color:rgb(186,188,119)" ><span style = "color: #000000">Army</span></li>
+            <li style = "color:rgb(207,216,182)" ><span style = "color: #000000">Officials</span></li>
+            <li style = "color:rgb(67,68,43)" ><span style = "color: #000000">Supporters</span></li>
+            <li style = "color:rgb(200,112,126)" ><span style = "color: #000000">Joint</span></li>
+            <li style = "color:rgb(90,160,141)" ><span style = "color: #000000">Staff</span></li>
+          </ul>
+        </section>
+      </section>
+
+
+    </section>
+
+  </div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+  <script type="text/javascript" src='js/utils.js'></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
