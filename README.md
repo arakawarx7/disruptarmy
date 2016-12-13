@@ -1,4 +1,4 @@
 # disruptarmy
 
-website the live site
+Visit the site
 https://arakawarx7.github.io/disruptarmy/
